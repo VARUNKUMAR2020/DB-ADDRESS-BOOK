@@ -1,0 +1,50 @@
+//* CREATION OF DATABASE 
+create database address_book_system;
+use address_book_system;
+
+//* CREATION OF TABLE IN DATABASE
+create table AddressBook(
+      FIRSTNAME varchar(100),
+	LASTNAME varchar(100),
+	ADDRESS varchar(100),
+	CITY varchar(100),
+	STATE varchar (100),
+	ZIPCODE int,
+	MOBILE long,
+	EMAIL varchar(100));
+
+//* INSERTION OF DATA IN TABLES
+ insert into AddressBook(FIRSTNAME,LASTNAME,ADDRESS,CITY,STATE,ZIPCODE,MOBILE,EMAIL) values
+	('VARUN','KUMAR','VELLORE','CHENNAI','TAMILNADU',632103,8870187077,'varun@gmail.com'),
+	('MAHESH','BABU','KSR','BENGALURU','KARNATAKA',56423,95552622,'mahesh@gmail.com'),
+	('AJITH','SHARMA','ULASNAGAR','MUMBAI','MAHARASTARA',556001,9751288448,'ajith@gmail.com');
+
+//* DISPLAY TABLE
+select * from AddressBook;
+
+//* UPDATE USING NAME
+update AddressBook set LASTNAME = "VENKAT" where FirstName = "VARUN";
+
+//* DELETE USING NAME
+delete from AddressBook where FirstName='VARUN';
+
+//* DISPLAY USING PARTICULAR DETAILS
+select * from AddressBook where City = "BENGALURU" or State = "KARNATAKA"; 
+
+//* COUNT IN DATABASE
+select COUNT(*) from AddressBook group by CITY;
+
+//* ALPHABETICAL ORDER
+select * from AddressBook order by FIRSTNAME;
+
+//* ALTER THE TABLES
+alter table Addressbook add CONTACT TYPE varchar(100);
+update AddressBook set CONTACT TYPE = 'FAMILY' where FIRSTNAME= 'VARUN';
+
+//* COUNT IN DATABASE
+select COUNT(*) from AddressBook group by MOBILE;
+
+//* ADD FAMILY/FRIEND IN SINGLE CONTACT
+update AddressBook set CONTACT_TYPE = "FRIEND/FAMILY" where FIRSTNAME = "VARUN";
+
+
